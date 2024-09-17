@@ -1,60 +1,59 @@
-# CodeIgniter 4 Framework
+# WARNING
 
-## What is CodeIgniter?
+This software should be used for **educational** or **security purposes** only. The author is not responsible for any misuse of the code presented here.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## About
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+This software re-signs APK files. How you use it is entirely up to you.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+The software uses **PHP** and some **console tools** to sign `.apk` files in a RANDOM manner. It has been partially developed and works with console tools.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+If you're not an **expert** or unsure of what this does, avoid using it. It may corrupt or modify your APK files. The author takes **no responsibility** for such issues.
 
-## Important Change with index.php
+**This software does not work on standard hosting accounts.**  
+It is not compatible with web hosting management software like cPanel, DirectAdmin, Plesk, and CWP, and requires additional dependencies.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Some parts of the portal are still under development, and I currently don't have time to finish them.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## Requirements to Run APK Signer
 
-**Please** read the user guide for a better explanation of how CI4 works!
+- **PHP 8.1 or higher**
+- **MySQL Database**
+- All server-side extensions and requirements for **CodeIgniter 4.5 core version**
 
-## Repository Management
+Additionally, the `exec` function must be **enabled** in the `php.ini` file.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### System Requirements
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- **Keytool**
+- **Jarsigner**
 
-## Contributing
+These tools must be installed on the Linux side.
 
-We welcome contributions from the community.
+## APK Signing Process
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+The entire APK signing process is located in the `controller -> Apk.php` file. All values are defined randomly.
 
-## Server Requirements
+## Registration
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+There are two types of users in the system: **Admin** and **Users**.  
+Users can register via the "Register" button. They only have download rights.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+### Admins
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Admins can be defined directly through the MySQL database. They have full access.
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+## Signing Process Notes
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+During the signing process, a new signed file is created from the existing unsigned file.  
+Each time the "Sign" button is clicked, a new signed file is generated from the unsigned file, and the old one is deleted.  
+The system works on a pool mechanism rather than creating individual signed files for each user.
+
+## Recent Updates
+
+I have updated from **CI4 to CI4.5**. If you encounter any issues, please let me know.
+
+## Support
+
+If you need any assistance or have questions about the project, feel free to reach out.  
+You can contact me via email at [ibrahim@yilmazca.com](mailto:ibrahim@yilmazca.com) or visit [yilmazca.com](https://yilmazca.com) for more information.
